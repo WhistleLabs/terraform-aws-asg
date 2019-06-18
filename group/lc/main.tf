@@ -36,8 +36,10 @@ resource "aws_launch_configuration" "lc" {
   spot_price = var.spot_price
   user_data  = var.user_data
 
+  ebs_block_device { }
+
   dynamic ebs_block_device {
-    for_each = var.ebs_vol_device_name
+    for_each = var.ebs_block_device
     content {
       delete_on_termination = var.ebs_vol_del_on_term
       device_name = ebs_block_device.value
