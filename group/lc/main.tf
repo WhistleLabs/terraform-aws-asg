@@ -77,7 +77,7 @@ resource "aws_launch_configuration" "lc_ebs" {
     for_each = var.ebs_vol_device_name
     content {
       delete_on_termination = var.ebs_vol_del_on_term
-      device_name = var.ebs_vol_device_name
+      device_name = ebs_block_device.value
       encrypted = length(var.ebs_vol_snapshot_id) > 0 ? "" : var.ebs_vol_encrypted
       iops = var.ebs_vol_type == "io1" ? var.ebs_vol_iops : "0"
       snapshot_id = var.ebs_vol_snapshot_id
