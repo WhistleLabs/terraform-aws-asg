@@ -65,9 +65,9 @@ variable "ebs_vol_del_on_term" {
 }
 
 variable "ebs_vol_device_name" {
-  type        = string
+  type        = list(string)
   description = "The name of the device to mount."
-  default     = ""
+  default     = []
 }
 
 variable "ebs_vol_encrypted" {
