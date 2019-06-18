@@ -39,6 +39,7 @@ variable "ebs_vol_del_on_term" {
 
 variable "ebs_vol_device_name" {
   type = list(string)
+  default = []
 }
 
 variable "ebs_vol_encrypted" {
