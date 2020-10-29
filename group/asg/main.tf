@@ -72,5 +72,9 @@ resource "aws_autoscaling_group" "asg_elb" {
   wait_for_elb_capacity     = length(var.wait_for_elb_capacity) > 0 ? var.wait_for_elb_capacity : "0"
 
   tags = concat(local.default_asg_tags, var.additional_asg_tags)
+
+  lifecycle {
+    ignore_changes = [desired_capacity]
+  }
 }
 

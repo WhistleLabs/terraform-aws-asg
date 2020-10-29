@@ -4,6 +4,10 @@ output "asg_id" {
   value = module.asg.asg_id
 }
 
+output "asg_arns" {
+  value = module.asg.asg_arns
+}
+
 output "asg_name" {
   value = module.asg.asg_name
 }

@@ -7,6 +7,13 @@ output "asg_id" {
   )
 }
 
+output "asg_arns" {
+  value = concat(
+    aws_autoscaling_group.asg.*.arn,
+    aws_autoscaling_group.asg_elb.*.arn,
+  )
+}
+
 output "asg_name" {
   value = coalesce(
     join(",", aws_autoscaling_group.asg.*.name),
